@@ -1,0 +1,47 @@
+@import 'lib/theme.less';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'RedexPro', sans-serif;
+}
+
+html,
+body {
+    color: @text-color;
+    background-color: @background-color;
+}
+
+h1 {
+    font-family: 'DaysOne', sans-serif;
+}
+
+a {
+    color: @primary-color;
+}
+
+a:active {
+    color: darken(@primary-color, 10%);
+}
+
+@font-face {
+    font-family: 'RedexPro';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/ReadexPro-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'RedexPro';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/fonts/ReadexPro-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'DaysOne';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/DaysOne-Regular.ttf');
+}
