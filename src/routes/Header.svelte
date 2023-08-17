@@ -1,29 +1,24 @@
 <script lang="ts">
     import logo from '$lib/images/logo.svg';
-    import githubLogo from '$lib/images/github_logo.png';
-    import { PUBLIC_REPOSITORY_URL } from '$env/static/public';
+    import Button from '$lib/ui/Button.svelte';
 </script>
 
 <header>
-    <a
-        class="logo"
-        href="/"
-    >
+    <a href="/">
         <img
             src="{logo}"
             alt="Ovunto Logo"
         />
-        <h1>Ovunto</h1>
     </a>
-    <a
-        href="{PUBLIC_REPOSITORY_URL}"
-        target="_blank"
-    >
-        <img
-            src="{githubLogo}"
-            alt="GitHub Logo"
-        />
-    </a>
+    <Button
+        primary
+        text="Sign-up"
+        href="/auth/signup"
+    />
+    <Button
+        text="Log-in"
+        href="/auth/login"
+    />
 </header>
 
 <style lang="less">
@@ -32,26 +27,19 @@
     header {
         display: flex;
         align-items: center;
-        height: 60px;
+        height: 50px;
         padding: 0 20px;
-        background-color: darken(@background-color, 10%);
+        background-color: lighten(@background-color, 5%);
+        font-size: 15px;
+        justify-content: end;
+        gap: 10px;
 
-        :last-child {
-            margin-left: auto;
+        :first-child {
+            margin-right: auto;
         }
     }
 
-    .logo {
-        display: flex;
-        align-items: center;
-        justify-content: start;
-        width: min-content;
-        gap: 10px;
-        color: inherit;
-        text-decoration: none;
-    }
-
     img {
-        height: 40px;
+        height: 30px;
     }
 </style>
