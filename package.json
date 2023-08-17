@@ -5,7 +5,7 @@
     "scripts": {
         "pull": "vercel env pull .env",
         "dev": "vite dev --port 3000",
-        "build": "vite build",
+        "build": "prisma migrate deploy && vite build",
         "preview": "vite preview",
         "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
         "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
