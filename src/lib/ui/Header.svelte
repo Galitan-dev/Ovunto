@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { page } from '$app/stores';
     import logo from '$lib/images/logo.svg';
     import Button from '$lib/ui/Button.svelte';
 </script>
@@ -10,15 +11,28 @@
             alt="Ovunto Logo"
         />
     </a>
-    <Button
-        primary
-        text="Sign-up"
-        href="/auth/signup"
-    />
-    <Button
-        text="Log-in"
-        href="/auth/login"
-    />
+    {#if $page.data.session}
+        <span>
+            {#if $page.data.session.user?.image}
+                <span
+                    style="background-image: url('{$page.data.session.user.image}')"
+                    class="avatar"
+                />
+            {/if}
+            {$page.data.session.user?.name ?? "User"}
+        </span>
+        <Button
+            primary
+            text="Open Your Egg"
+            href="/app"
+        />
+    {:else}
+        <Button
+            primary
+            text="Sign-In"
+            href="/auth"
+        />
+    {/if}
 </header>
 
 <style lang="less">

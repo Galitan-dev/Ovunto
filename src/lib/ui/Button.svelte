@@ -3,6 +3,8 @@
     export let text: string;
     export let icon: string = "";
     export let href: string = "";
+    export let submit: boolean = false;
+    export let width: number | undefined = undefined;
 </script>
 
 {#if href}
@@ -10,6 +12,7 @@
         class="button"
         class:primary="{primary}"
         href="{href}"
+        style={width ? `width: ${width}px;` : ''}
     >
         {#if icon}
             <img src={icon} alt={text}>
@@ -20,6 +23,9 @@
     <button
         class="button"
         class:primary="{primary}"
+        on:click
+        type={submit ? 'submit' : 'button'}
+        style={width ? `width: ${width}px;` : ''}
     >
         {#if icon}
             <img src={icon} alt={text}>
@@ -43,6 +49,9 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        cursor: pointer;
+        border: none;
+        font-size: 15px;
 
         img {
             width: 20px;
