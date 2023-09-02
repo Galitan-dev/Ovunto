@@ -1,3 +1,6 @@
+import './day.svg';
+import './night.svg';
+
 import { theme } from '$lib/stores/preferences';
 import { derived } from 'svelte/store';
 
