@@ -1,10 +1,9 @@
 <script lang="ts">
-    export let primary: boolean = false;
-    export let justifyLeft: boolean = false;
-    export let expand: boolean = false;
-    export let disabled: boolean = false;
+    export let primary = false;
+    export let justifyLeft = false;
+    export let disabled = false;
     export let href: string = '';
-    export let submit: boolean = false;
+    export let submit = false;
 </script>
 
 {#if href}
@@ -12,7 +11,6 @@
         class="button"
         class:primary="{primary}"
         class:justify-left="{justifyLeft}"
-        class:expand="{expand}"
         class:disabled="{disabled}"
         href="{href}">
         <slot />
@@ -23,7 +21,6 @@
         class:primary="{primary}"
         class:disabled="{disabled}"
         class:justify-left="{justifyLeft}"
-        class:expand="{expand}"
         disabled="{disabled}"
         on:click
         type="{submit ? 'submit' : 'button'}">
@@ -40,32 +37,37 @@
         gap: 10px;
 
         border-radius: 5px;
+        border: none;
         background: var(--text);
 
         color: var(--background);
+        --icon-color: var(--background);
         font-size: 18px;
+        --icon-size: 18px;
 
         &.primary {
             background: var(--primary);
 
             color: var(--white);
+            --icon-color: var(--white);
         }
 
         &.disabled {
             background: var(--text-dimmed);
 
             color: var(--background);
+            --icon-color: var(--background);
+            
+            cursor: not-allowed;
         }
 
         &.justify-left {
             justify-content: flex-start;
-        }
-
-        &.expand {
-            width: 100%;
+            padding: 8px 20px;
         }
 
         transition: background 0.3s;
+        cursor: pointer;
 
         &:hover {
             background: var(--text-alt);
