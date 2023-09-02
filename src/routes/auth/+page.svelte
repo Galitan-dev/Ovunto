@@ -25,12 +25,17 @@
     </div>
     <VerticalSplit>Or</VerticalSplit>
     <form class="magic">
-        <TextInput bind:value={email} bind:valid={isEmailValid} placeholder="email@adress.com" pattern='email' />
+        <TextInput
+            bind:value="{email}"
+            bind:valid="{isEmailValid}"
+            placeholder="email@adress.com"
+            pattern="email" />
         <Button
             primary
             submit
-            disabled={!isEmailValid}
-            on:click={() => signIn('email', { email, callbackUrl: `${window.location.origin}/app` })}
+            disabled="{!isEmailValid}"
+            on:click="{() =>
+                signIn('email', { email, callbackUrl: `${window.location.origin}/app` })}"
             justifyLeft><Icon name="mail" /> Use Magic Link</Button>
     </form>
 </main>

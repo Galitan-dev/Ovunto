@@ -57,7 +57,7 @@
 
             color: var(--background);
             --icon-color: var(--background);
-            
+
             cursor: not-allowed;
         }
 

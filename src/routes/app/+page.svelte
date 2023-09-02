@@ -14,6 +14,4 @@
 <h1>Hello {user.name ?? 'User'}</h1>
 <p>eMail: {user.email}</p>
 
-<Button
-    text="Sign-Out"
-    on:click="{() => signOut({ callbackUrl: `${window.location.origin}/` })}" />
+<Button on:click="{() => signOut({ callbackUrl: `${window.location.origin}/` })}">Sign-out</Button>

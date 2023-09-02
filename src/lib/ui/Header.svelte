@@ -22,8 +22,12 @@
             {:else if i === 1}
                 <Button
                     primary
-                    href="/auth">
-                    Sign-In
+                    href={$page.data.session ? '/app' : '/auth'}>
+                    {#if $page.data.session}
+                        Open Your Egg
+                    {:else}
+                        Sign-In
+                    {/if}
                 </Button>
             {:else if $page.route.id !== '/auth'}
                 <div
