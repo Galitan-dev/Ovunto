@@ -1,73 +1,82 @@
 <script lang="ts">
     export let primary: boolean = false;
-    export let text: string;
-    export let icon: string = "";
-    export let href: string = "";
+    export let justifyLeft: boolean = false;
+    export let expand: boolean = false;
+    export let disabled: boolean = false;
+    export let href: string = '';
     export let submit: boolean = false;
-    export let width: number | undefined = undefined;
 </script>
 
 {#if href}
     <a
         class="button"
         class:primary="{primary}"
-        href="{href}"
-        style={width ? `width: ${width}px;` : ''}
-    >
-        {#if icon}
-            <img src={icon} alt={text}>
-        {/if}
-        {text}
+        class:justify-left="{justifyLeft}"
+        class:expand="{expand}"
+        class:disabled="{disabled}"
+        href="{href}">
+        <slot />
     </a>
 {:else}
     <button
         class="button"
         class:primary="{primary}"
+        class:disabled="{disabled}"
+        class:justify-left="{justifyLeft}"
+        class:expand="{expand}"
+        disabled="{disabled}"
         on:click
-        type={submit ? 'submit' : 'button'}
-        style={width ? `width: ${width}px;` : ''}
-    >
-        {#if icon}
-            <img src={icon} alt={text}>
-        {/if}
-        {text}
+        type="{submit ? 'submit' : 'button'}">
+        <slot />
     </button>
 {/if}
 
 <style lang="less">
-    @import '../theme.less';
-
     .button {
-        text-decoration: none;
-        padding: 0 20px;
-        height: 40px;
-        background-color: @text-color;
-        color: @background-color;
-        border-radius: 20px;
-        transition: 0.4s;
-        transition-property: background-color, color;
         display: flex;
+        padding: 8px 40px;
+        justify-content: center;
         align-items: center;
         gap: 10px;
-        cursor: pointer;
-        border: none;
-        font-size: 15px;
 
-        img {
-            width: 20px;
-            height: 20px;
-        }
+        border-radius: 5px;
+        background: var(--text);
 
-        &:hover {
-            background-color: lighten(@text-color, 10%);
-        }
+        color: var(--background);
+        font-size: 18px;
 
         &.primary {
-            background-color: @primary-color;
+            background: var(--primary);
+
+            color: var(--white);
         }
 
-        &.primary:hover {
-            background-color: lighten(@primary-color, 10%);
+        &.disabled {
+            background: var(--text-dimmed);
+
+            color: var(--background);
+        }
+
+        &.justify-left {
+            justify-content: flex-start;
+        }
+
+        &.expand {
+            width: 100%;
+        }
+
+        transition: background 0.3s;
+
+        &:hover {
+            background: var(--text-alt);
+
+            &.primary {
+                background: var(--primary-alt);
+            }
+
+            &.disabled {
+                background: var(--text-dimmed);
+            }
         }
     }
 </style>

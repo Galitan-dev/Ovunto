@@ -4,25 +4,24 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'RedexPro', sans-serif;
 }
 
 html,
 body {
-    color: @text-color;
-    background-color: @background-color;
-}
-
-h1 {
-    font-family: 'DaysOne', sans-serif;
+    color: var(--text);
+    background-color: var(--background);
+    font-family: 'RedexPro', sans-serif;
 }
 
 a {
-    color: @primary-color;
+    color: inherit;
+    text-decoration: none;
 }
 
-a:active {
-    color: darken(@primary-color, 10%);
+h1 {
+    font-family: 'DaysOne';
+    font-size: 30px;
+    letter-spacing: 2px;
 }
 
 @font-face {

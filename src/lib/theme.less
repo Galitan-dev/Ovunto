@@ -1,3 +1,50 @@
 @primary-color: #f08700;
 @text-color: #363636;
 @background-color: #f2efe9;
+
+@orange: #f08700;
+@black: #363636;
+@white: #f2efe9;
+
+@green: #53917e;
+@yellow: #f0c400;
+@red: #d7263d;
+
+body {
+    --white: @white;
+
+    --primary: @orange;
+    --text: @black;
+    --background: @white;
+
+    --success: @green;
+    --warning: @yellow;
+    --error: @red;
+
+    --primary-alt: fade(@orange, 80%);
+    --text-alt: fade(@black, 80%);
+    --background-alt: lighten(@white, 5%);
+
+    --success-alt: mix(@green, @white, 40%);
+    --warning-alt: mix(@yellow, @white, 40%);
+    --error-alt: mix(@red, @white, 40%);
+
+    --primary-dimmed: fade(@orange, 60%);
+    --text-dimmed: fade(@black, 60%);
+    --background-dimmed: fade(lighten(@white, 5%), 60%);
+
+    &.night {
+        --text: @white;
+        --background: @black;
+
+        --text-alt: fade(@white, 80%);
+        --background-alt: lighten(@black, 5%);
+
+        --success-alt: mix(@green, @black, 40%);
+        --warning-alt: mix(@yellow, @black, 40%);
+        --error-alt: mix(@red, @black, 40%);
+
+        --text-dimmed: fade(@white, 60%);
+        --background-dimmed: fade(lighten(@black, 5%), 60%);
+    }
+}

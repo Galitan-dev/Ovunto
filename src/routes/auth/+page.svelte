@@ -15,31 +15,27 @@
     <div class="left">
         <img
             src="{illustration}"
-            alt="Secure browsing"
-        />
+            alt="Secure browsing" />
         <h1>Ovunto</h1>
     </div>
     <div class="right">
         <h1>Let's Get Started!</h1>
 
         <Button
-            icon={Google}
+            icon="{Google}"
             text="Sign-In with Google"
-            on:click={() => signIn('google', { callbackUrl: `${window.location.origin}/app` })}
-            width={250}
-        />
+            on:click="{() => signIn('google', { callbackUrl: `${window.location.origin}/app` })}"
+            width="{250}" />
         <Button
-            icon={Twitter}
+            icon="{Twitter}"
             text="Sign-In with Twitter"
-            on:click={() => signIn('twitter', { callbackUrl: `${window.location.origin}/app` })}
-            width={250}
-        />
+            on:click="{() => signIn('twitter', { callbackUrl: `${window.location.origin}/app` })}"
+            width="{250}" />
         <Button
-            icon={Github}
+            icon="{Github}"
             text="Sign-In with GitHub"
-            on:click={() => signIn('github', { callbackUrl: `${window.location.origin}/app` })}
-            width={250}
-        />
+            on:click="{() => signIn('github', { callbackUrl: `${window.location.origin}/app` })}"
+            width="{250}" />
 
         <div class="or">
             <div></div>
@@ -47,16 +43,21 @@
             <div></div>
         </div>
 
-        <form on:submit={() => signIn('email', { email, callbackUrl: `${window.location.origin}/app` })}>
-            <input type="email" bind:value={email} required placeholder="email@adress.com" />
+        <form
+            on:submit="{() =>
+                signIn('email', { email, callbackUrl: `${window.location.origin}/app` })}">
+            <input
+                type="email"
+                bind:value="{email}"
+                required
+                placeholder="email@adress.com" />
 
             <Button
-                icon={Email}
+                icon="{Email}"
                 primary
                 text="Use Magic Link"
                 submit
-                width={250}
-            />
+                width="{250}" />
         </form>
     </div>
 </main>
@@ -133,7 +134,7 @@
             justify-content: center;
             align-items: center;
             gap: 5px;
-            opacity: .5;
+            opacity: 0.5;
             margin: 10px 0;
 
             div {

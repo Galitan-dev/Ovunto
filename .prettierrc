@@ -8,7 +8,7 @@
     "pluginSearchDirs": ["."],
     "overrides": [{ "files": "*.svelte", "options": { "parser": "svelte" } }],
     "arrowParens": "always",
-    "bracketSameLine": false,
+    "bracketSameLine": true,
     "bracketSpacing": true,
     "endOfLine": "lf",
     "htmlWhitespaceSensitivity": "css",
@@ -16,7 +16,6 @@
     "semi": true,
     "singleAttributePerLine": true,
     "svelteAllowShorthand": true,
-    "svelteBracketNewLine": true,
     "svelteIndentScriptAndStyle": true,
     "svelteSortOrder": "options-scripts-markup-styles",
     "svelteStrictMode": true
